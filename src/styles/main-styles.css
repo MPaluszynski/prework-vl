@@ -1,5 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap");
+
 :root {
   --background: #f5f8fd;
+  --primary-font: "Oswald";
+  --primary-font-color: #1a2328;
+  --secondary-font-color: #484f53;
+  --tertiary-font-color: #5f6569;
+  --horizontal-padding: 100px;
 }
 
 body,
