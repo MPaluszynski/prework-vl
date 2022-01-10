@@ -1,0 +1,37 @@
+.input {
+  background: var(--secondary--background);
+  box-sizing: border-box;
+  border: 1px solid #bac6d8;
+  border-radius: 5px;
+  width: 208.5px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding: 11px 12px;
+  font-family: var(--primary-font);
+}
+
+.input__text {
+  width: 140px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  color: var(--quaternary-font-color);
+  font-size: 1.1em;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 130%;
+}
+
+.input__icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: none;
+  font-size: 1.75em;
+  color: #0088da;
+  width: 44.5px;
+  height: 44.5px;
+  padding: 11px 12px;
+  cursor: pointer;
+}

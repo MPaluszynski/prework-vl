@@ -2,10 +2,12 @@
 
 :root {
   --primary--background: #f5f8fd;
+  --secondary--background: #ffffff;
   --primary-font: "Oswald";
   --primary-font-color: #1a2328;
   --secondary-font-color: #484f53;
   --tertiary-font-color: #5f6569;
+  --quaternary-font-color: #8c9193;
   --horizontal-padding: 100px;
 }
 
