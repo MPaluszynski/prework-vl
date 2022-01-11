@@ -1,8 +1,8 @@
-import "./multi-select-styles.css";
+import "./dropdown-styles.css";
 import { useState } from "react";
 import Multiselect from "multiselect-react-dropdown";
 
-export const MultiSelect = (props) => {
+export const Dropdown = (props) => {
   const [options] = useState(props.optionsArray);
 
   const onSelect = (selectedList, selectedItem) => {
@@ -18,12 +18,17 @@ export const MultiSelect = (props) => {
       border: "none",
       color: "#484f53",
     },
+    chips: {
+      // To change css chips(Selected options)
+      background: "red",
+    },
   };
 
   return (
-    <div className="multi-select">
+    <div className="dropdown">
       <Multiselect
         placeholder={props.placeholder}
+        singleSelect={props.isSingleSelect}
         options={options}
         displayValue="name"
         onSelect={onSelect}
@@ -32,7 +37,6 @@ export const MultiSelect = (props) => {
         hidePlaceholder={true}
         showArrow={true}
         showCheckbox={true}
-        selectionLimit={4}
       />
     </div>
   );
