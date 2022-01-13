@@ -27,33 +27,36 @@ export const Filters = () => {
 
   return (
     <div className="filters">
-      <Input />
-      <Dropdown
-        placeholder={"Species"}
-        optionsArray={speciesArray}
-        isSingleSelect={false}
-      />
-      <Dropdown
-        placeholder={"Homeworlds"}
-        optionsArray={homeworldsArray}
-        isSingleSelect={false}
-      />
-      <Dropdown
-        placeholder={"Status"}
-        optionsArray={statusArray}
-        isSingleSelect={true}
-      />
-      <Button
-        text={"Deactivate characteres"}
-        background={"primary"}
-        sign={"⛔"}
-      />
-      <Button
-        text={"Remove characteres"}
-        background={"secondary"}
-        sign={"➖"}
-      />
-      {/* <SingleSelect placeholder={"Status"}  /> */}
+      <div className="filters__inputs">
+        <Input />
+        <Dropdown
+          placeholder={"Species"}
+          optionsArray={speciesArray}
+          isSingleSelect={false}
+        />
+        <Dropdown
+          placeholder={"Homeworlds"}
+          optionsArray={homeworldsArray}
+          isSingleSelect={false}
+        />
+        <Dropdown
+          placeholder={"Status"}
+          optionsArray={statusArray}
+          isSingleSelect={true}
+        />
+      </div>
+      <div className="filters__buttons">
+        <Button
+          text={"Deactivate characteres"}
+          background={"primary"}
+          sign={"⛔"}
+        />
+        <Button
+          text={"Remove characteres"}
+          background={"secondary"}
+          sign={"➖"}
+        />
+      </div>
     </div>
   );
 };

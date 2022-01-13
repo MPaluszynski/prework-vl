@@ -6,6 +6,7 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  margin-left: 40px;
   padding: 11px 12px;
   cursor: pointer;
 }
