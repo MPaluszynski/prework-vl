@@ -1,5 +1,9 @@
 .footer {
-  background: lightseagreen;
-  width: 100%;
+  background: var(--primary--background);
+  width: calc(100% - 2 * var(--horizontal-padding));
+  padding: 0 var(--horizontal-padding);
   height: 15vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }

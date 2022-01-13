@@ -1,5 +1,5 @@
 .header {
-  background: lightcoral;
+  background: var(--primary--background);
   width: calc(100% - 2 * var(--horizontal-padding));
   height: 15vh;
   padding: 0 var(--horizontal-padding);
