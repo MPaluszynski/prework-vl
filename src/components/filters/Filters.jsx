@@ -1,7 +1,8 @@
 import "./filters-styles.css";
 import { Input } from "../_reusableComponents/input/Input";
 import { Dropdown } from "../_reusableComponents/dropdown/Dropdown";
-// import { SingleSelect } from "../_reusableComponents/singleSelect/SingleSelect";
+import { Button } from "../_reusableComponents/button/Button";
+
 export const Filters = () => {
   //
   // Do usunięcia po ogarnięciu fetchowania
@@ -41,6 +42,16 @@ export const Filters = () => {
         placeholder={"Status"}
         optionsArray={statusArray}
         isSingleSelect={true}
+      />
+      <Button
+        text={"Deactivate characteres"}
+        background={"primary"}
+        sign={"⛔"}
+      />
+      <Button
+        text={"Remove characteres"}
+        background={"secondary"}
+        sign={"➖"}
       />
       {/* <SingleSelect placeholder={"Status"}  /> */}
     </div>

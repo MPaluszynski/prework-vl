@@ -8,7 +8,10 @@
   --secondary-font-color: #484f53;
   --tertiary-font-color: #5f6569;
   --quaternary-font-color: #8c9193;
+  --btn-font-color: #ffffff;
   --horizontal-padding: 100px;
+  --primary-btn-background: #0088da;
+  --secondary-btn-background: #bc2626;
 }
 
 body,

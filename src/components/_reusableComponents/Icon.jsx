@@ -1,7 +1,9 @@
 import * as AiIcons from "react-icons/ai";
+import * as BiIcons from "react-icons/bi";
 
 const nameMapping = {
   Ai: AiIcons,
+  Bi: BiIcons,
 };
 
 export const Icon = (props) => {
