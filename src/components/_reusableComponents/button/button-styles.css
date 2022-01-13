@@ -11,14 +11,6 @@
   cursor: pointer;
 }
 
-.primary {
-  background: var(--primary-btn-background);
-}
-
-.secondary {
-  background: var(--secondary-btn-background);
-}
-
 .button__text {
   font-family: var(--primary-font);
   font-style: normal;

@@ -48,12 +48,12 @@ export const Filters = () => {
       <div className="filters__buttons">
         <Button
           text={"Deactivate characteres"}
-          background={"primary"}
+          background={"#0088da"}
           sign={"⛔"}
         />
         <Button
           text={"Remove characteres"}
-          background={"secondary"}
+          background={"#bc2626"}
           sign={"➖"}
         />
       </div>
