@@ -1,57 +1,59 @@
 import "./footer-styles.css";
 import { Tile } from "../_reusableComponents/tile/Tile";
+import { useState } from "react";
 
-export const Footer = () => {
+export const Footer = (props) => {
+  const [firstElement, setFirstElement] = useState(1);
+  const [currentElement, setCurrentElement] = useState(1);
+
   return (
     <div className="footer">
       <Tile
         text={"<"}
-        background={"#ffffff"}
-        border={"1px solid #bac6d8"}
-        shadow={"0px 2px 4px #dde3ec"}
+        currentElement={currentElement}
+        firstElement={firstElement}
+        lastElement={props.lastElement}
+        setCurrentElement={setCurrentElement}
+        setFirstElement={setFirstElement}
       />
       <Tile
-        text={"1"}
-        background={"#ffffff"}
-        border={"1px solid #bac6d8"}
-        shadow={"0px 2px 4px #dde3ec"}
+        text={firstElement}
+        currentElement={currentElement}
+        setCurrentElement={setCurrentElement}
       />
       <Tile
-        text={"2"}
-        background={"#ffffff"}
-        border={"1px solid #bac6d8"}
-        shadow={"0px 2px 4px #dde3ec"}
+        text={firstElement + 1}
+        currentElement={currentElement}
+        setCurrentElement={setCurrentElement}
       />
       <Tile
-        text={"3"}
-        background={"#ffffff"}
-        border={"1px solid #bac6d8"}
-        shadow={"0px 2px 4px #dde3ec"}
+        text={firstElement + 2}
+        currentElement={currentElement}
+        setCurrentElement={setCurrentElement}
       />
-      <Tile text={"..."} background={"transparent"} border={"none"} />
+      <Tile text={"..."} />
       <Tile
-        text={"23"}
-        background={"#ffffff"}
-        border={"1px solid #bac6d8"}
-        shadow={"0px 2px 4px #dde3ec"}
+        text={props.lastElement - 2}
+        currentElement={currentElement}
+        setCurrentElement={setCurrentElement}
       />
       <Tile
-        text={"24"}
-        background={"#ffffff"}
-        border={"1px solid #bac6d8"}
-        shadow={"0px 2px 4px #dde3ec"}
+        text={props.lastElement - 1}
+        currentElement={currentElement}
+        setCurrentElement={setCurrentElement}
       />
       <Tile
-        text={"25"}
-        background={"#ffffff"}
-        border={"1px solid #bac6d8"}
-        shadow={"0px 2px 4px #dde3ec"}
+        text={props.lastElement}
+        currentElement={currentElement}
+        setCurrentElement={setCurrentElement}
       />
       <Tile
         text={">"}
-        background={"#ffffff"}
-        border={"1px solid #bac6d8"}
-        shadow={"0px 2px 4px #dde3ec"}
+        currentElement={currentElement}
+        firstElement={firstElement}
+        lastElement={props.lastElement}
+        setCurrentElement={setCurrentElement}
+        setFirstElement={setFirstElement}
       />
     </div>
   );
