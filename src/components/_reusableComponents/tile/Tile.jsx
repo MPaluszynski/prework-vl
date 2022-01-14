@@ -30,6 +30,8 @@ export const Tile = (props) => {
         props.setFirstElement(props.currentElement - 3);
         props.setCurrentElement(props.currentElement - 1);
       }
+    } else if (!isNaN(props.text)) {
+      props.setCurrentElement(props.text);
     }
   };
 
