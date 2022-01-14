@@ -1,21 +1,22 @@
 import "./data-styles.css";
+import { Row } from "../_reusableComponents/row/Row.jsx";
 
 export const Data = () => {
   return (
     <div className="data">
       <div className="data__table">
-        <div className="data__column">1</div>
-        <div className="data__column">2</div>
-        <div className="data__column">3</div>
-        <div className="data__column">4</div>
-        <div className="data__column">5</div>
-        <div className="data__column">6</div>
-        <div className="data__column">1</div>
-        <div className="data__column">2</div>
-        <div className="data__column">3</div>
-        <div className="data__column">4</div>
-        <div className="data__column">5</div>
-        <div className="data__column">6</div>
+        <Row
+          name={"Name"}
+          born={"Born"}
+          homeworld={"Homeworld"}
+          vehicles={"Vehicles and Starships"}
+          status={"Status"}
+        />
+        <Row />
+        <Row />
+        <Row />
+        <Row />
+        <Row />
       </div>
     </div>
   );
