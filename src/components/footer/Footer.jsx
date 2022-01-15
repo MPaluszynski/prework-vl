@@ -15,37 +15,51 @@ export const Footer = (props) => {
         lastElement={props.lastElement}
         setCurrentElement={props.setCurrentElement}
         setFirstElement={setFirstElement}
+        page={props.page}
+        setPage={props.setPage}
       />
       <Tile
         text={firstElement}
         currentElement={props.currentElement}
         setCurrentElement={props.setCurrentElement}
+        page={props.page}
+        setPage={props.setPage}
       />
       <Tile
         text={firstElement + 1}
         currentElement={props.currentElement}
         setCurrentElement={props.setCurrentElement}
+        page={props.page}
+        setPage={props.setPage}
       />
       <Tile
         text={firstElement + 2}
         currentElement={props.currentElement}
         setCurrentElement={props.setCurrentElement}
+        page={props.page}
+        setPage={props.setPage}
       />
       <Tile text={"..."} />
       <Tile
         text={props.lastElement - 2}
         currentElement={props.currentElement}
         setCurrentElement={props.setCurrentElement}
+        page={props.page}
+        setPage={props.setPage}
       />
       <Tile
         text={props.lastElement - 1}
         currentElement={props.currentElement}
         setCurrentElement={props.setCurrentElement}
+        page={props.page}
+        setPage={props.setPage}
       />
       <Tile
         text={props.lastElement}
         currentElement={props.currentElement}
         setCurrentElement={props.setCurrentElement}
+        page={props.page}
+        setPage={props.setPage}
       />
       <Tile
         text={">"}
@@ -54,6 +68,8 @@ export const Footer = (props) => {
         lastElement={props.lastElement}
         setCurrentElement={props.setCurrentElement}
         setFirstElement={setFirstElement}
+        page={props.page}
+        setPage={props.setPage}
       />
     </div>
   );

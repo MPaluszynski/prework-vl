@@ -2,6 +2,19 @@ import "./data-styles.css";
 import { Row } from "../_reusableComponents/row/Row.jsx";
 
 export const Data = (props) => {
+  const renderArray = props.peopleArray.map((person, index) => {
+    return (
+      <Row
+        key={index}
+        name={person.name}
+        born={person.birth_year}
+        homeworld={person.homeworld}
+        vehicles={`${person.vehicles[0]}, ${person.vehicles[1]}`}
+        status={"Active"}
+      />
+    );
+  });
+
   return (
     <div className="data">
       <div className="data__table">
@@ -12,13 +25,7 @@ export const Data = (props) => {
           vehicles={"Vehicles and Starships"}
           status={"Status"}
         />
-        <Row
-          name={props.peopleArray[0].name}
-          born={props.peopleArray[0].birth_year}
-          homeworld={props.peopleArray[0].homeworld}
-          vehicles={`${props.peopleArray[0].vehicles[0]}, ${props.peopleArray[0].vehicles[1]}`}
-          status={"Status"}
-        />
+        {renderArray}
       </div>
     </div>
   );
