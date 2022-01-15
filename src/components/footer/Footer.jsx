@@ -4,55 +4,55 @@ import { useState } from "react";
 
 export const Footer = (props) => {
   const [firstElement, setFirstElement] = useState(1);
-  const [currentElement, setCurrentElement] = useState(1);
+  // const [currentElement, setCurrentElement] = useState(1);
 
   return (
     <div className="footer">
       <Tile
         text={"<"}
-        currentElement={currentElement}
+        currentElement={props.currentElement}
         firstElement={firstElement}
         lastElement={props.lastElement}
-        setCurrentElement={setCurrentElement}
+        setCurrentElement={props.setCurrentElement}
         setFirstElement={setFirstElement}
       />
       <Tile
         text={firstElement}
-        currentElement={currentElement}
-        setCurrentElement={setCurrentElement}
+        currentElement={props.currentElement}
+        setCurrentElement={props.setCurrentElement}
       />
       <Tile
         text={firstElement + 1}
-        currentElement={currentElement}
-        setCurrentElement={setCurrentElement}
+        currentElement={props.currentElement}
+        setCurrentElement={props.setCurrentElement}
       />
       <Tile
         text={firstElement + 2}
-        currentElement={currentElement}
-        setCurrentElement={setCurrentElement}
+        currentElement={props.currentElement}
+        setCurrentElement={props.setCurrentElement}
       />
       <Tile text={"..."} />
       <Tile
         text={props.lastElement - 2}
-        currentElement={currentElement}
-        setCurrentElement={setCurrentElement}
+        currentElement={props.currentElement}
+        setCurrentElement={props.setCurrentElement}
       />
       <Tile
         text={props.lastElement - 1}
-        currentElement={currentElement}
-        setCurrentElement={setCurrentElement}
+        currentElement={props.currentElement}
+        setCurrentElement={props.setCurrentElement}
       />
       <Tile
         text={props.lastElement}
-        currentElement={currentElement}
-        setCurrentElement={setCurrentElement}
+        currentElement={props.currentElement}
+        setCurrentElement={props.setCurrentElement}
       />
       <Tile
         text={">"}
-        currentElement={currentElement}
+        currentElement={props.currentElement}
         firstElement={firstElement}
         lastElement={props.lastElement}
-        setCurrentElement={setCurrentElement}
+        setCurrentElement={props.setCurrentElement}
         setFirstElement={setFirstElement}
       />
     </div>

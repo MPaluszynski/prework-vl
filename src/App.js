@@ -7,26 +7,42 @@ import { Filters } from "./components/filters/Filters.jsx";
 import { Footer } from "./components/footer/Footer.jsx";
 
 export const App = () => {
-  const peopleUrl = "https://swapi.py4e.com/api/people/";
-  const [numberOfPeople, setNumberOfPeople] = useState(0);
-  // const [peopleArray, setPeopleArray] = useState([]);
+  const peopleUrl = "https://swapi.py4e.com/api/people/?search=";
+
+  const [data, setData] = useState({});
+  const [currentElement, setCurrentElement] = useState(1);
+
   useEffect(() => {
     fetch(peopleUrl)
       .then((response) => response.json())
       .then((data) => {
-        setNumberOfPeople(data.count);
-        // setPeopleArray(data.results);
+        setData(data);
       });
   }, []);
 
-  const lastElement = (numberOfPeople / 5 + 1).toFixed(0);
+  const lastElement = !!data.results ? (data.count / 5 + 1).toFixed(0) : 1;
+  const peopleArray = !!data.results ? [...data.results] : [];
 
   return (
     <div>
-      <Header />
-      <Filters />
-      <Data />
-      <Footer lastElement={lastElement} />
+      {!!data.results ? (
+        <>
+          <Header />
+          <Filters />
+          <Data
+            peopleArray={
+              currentElement % 2 !== 0
+                ? peopleArray.splice(0, 5)
+                : peopleArray.splice(5, 9)
+            }
+          />
+          <Footer
+            lastElement={lastElement}
+            currentElement={currentElement}
+            setCurrentElement={setCurrentElement}
+          />
+        </>
+      ) : null}
     </div>
   );
 };
