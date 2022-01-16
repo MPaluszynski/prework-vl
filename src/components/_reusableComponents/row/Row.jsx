@@ -1,5 +1,5 @@
 import "./row-styles.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 
 export const Row = (props) => {
@@ -31,21 +31,23 @@ export const Row = (props) => {
       });
   }
 
-  if (props.vehiclesAndStarships[0].length > 1) {
-    fetch(props.vehiclesAndStarships[0])
-      .then((response) => response.json())
-      .then((data) => {
-        setfirstMachine(data.name);
-      });
-  }
+  useEffect(() => {
+    if (props.vehiclesAndStarships[0].length > 1) {
+      fetch(props.vehiclesAndStarships[0])
+        .then((response) => response.json())
+        .then((data) => {
+          setfirstMachine(data.name);
+        });
+    }
 
-  if (props.vehiclesAndStarships[1].length > 1) {
-    fetch(props.vehiclesAndStarships[1])
-      .then((response) => response.json())
-      .then((data) => {
-        setSecondMachine(data.name);
-      });
-  }
+    if (props.vehiclesAndStarships[1].length > 1) {
+      fetch(props.vehiclesAndStarships[1])
+        .then((response) => response.json())
+        .then((data) => {
+          setSecondMachine(data.name);
+        });
+    }
+  }, []);
 
   const firstMachineName =
     props.vehiclesAndStarships[0].length > 1 ? firstMachine : "";
