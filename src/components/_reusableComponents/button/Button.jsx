@@ -6,8 +6,16 @@ export const Button = (props) => {
     background: ${props.background};
   `;
 
+  const handleClick = () => {
+    props.setActivePeopleArray(
+      props.peopleArray.filter((person) => {
+        return props.checkedNames.includes(person.name);
+      })
+    );
+  };
+
   return (
-    <StyledButton className={`button`}>
+    <StyledButton className={`button`} onClick={handleClick}>
       <span className={"button__sign"}>{props.sign}</span>
       <span className={"button__text"}>{props.text}</span>
     </StyledButton>

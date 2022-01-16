@@ -9,6 +9,9 @@ export const Data = (props) => {
 
     let firstMachineUrl = "";
     let secondMachineUrl = "";
+
+    const status = !props.activePeopleArray.includes(person);
+
     const jointArray = [...person.vehicles, ...person.starships];
 
     if (jointArray.length > 0) {
@@ -31,7 +34,7 @@ export const Data = (props) => {
         born={person.birth_year}
         homeworld={person.homeworld}
         vehiclesAndStarships={[firstMachineUrl, secondMachineUrl]}
-        status={true}
+        status={status}
         checkedNames={props.checkedNames}
         setCheckedNames={props.setCheckedNames}
       />

@@ -1,7 +1,13 @@
 import "./row-styles.css";
 import { useState } from "react";
+import styled from "styled-components";
 
 export const Row = (props) => {
+  const StyledRowFragment = styled.div`
+    background: ${!!props.status ? "#FFFFFF" : "#F6F8FA"};
+    color: ${!!props.status ? "##1A2328" : "#5F6569"};
+  `;
+
   const [planetName, setPlanetName] = useState("");
   const [speciesName, setSpeciesName] = useState("");
   const [firstMachine, setfirstMachine] = useState("");
@@ -60,23 +66,25 @@ export const Row = (props) => {
 
   return (
     <>
-      <div className="row__fragment">
+      <StyledRowFragment className="row__fragment">
         <input
           type="checkbox"
           className="row__fragment--checkbox"
           checked={checked}
           onChange={handleChange}
         />
-      </div>
-      <div className="row__fragment">
+      </StyledRowFragment>
+      <StyledRowFragment className="row__fragment">
         <span>{props.name}</span>
         <span className="row__fragment--species">{speciesName}</span>
-      </div>
-      <div className="row__fragment">{props.born}</div>
-      <div className="row__fragment">
+      </StyledRowFragment>
+      <StyledRowFragment className="row__fragment">
+        {props.born}
+      </StyledRowFragment>
+      <StyledRowFragment className="row__fragment">
         {!!props.isHeaderRow ? props.homeworld : planetName}
-      </div>
-      <div className="row__fragment">
+      </StyledRowFragment>
+      <StyledRowFragment className="row__fragment">
         {!!props.isHeaderRow ? (
           props.vehiclesAndStarships
         ) : (
@@ -85,8 +93,8 @@ export const Row = (props) => {
             <span>{secondMachineName}</span>
           </>
         )}
-      </div>
-      <div className="row__fragment">
+      </StyledRowFragment>
+      <StyledRowFragment className="row__fragment">
         {!!props.isHeaderRow ? (
           <>{"Status"}</>
         ) : !!props.status ? (
@@ -94,7 +102,7 @@ export const Row = (props) => {
         ) : (
           <>❌Deactivated</>
         )}
-      </div>
+      </StyledRowFragment>
     </>
   );
 };

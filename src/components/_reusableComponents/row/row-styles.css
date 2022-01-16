@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: var(--secondary--background);
+  /* background: var(--secondary--background); */
   color: var(--primary-font-color);
   margin-bottom: 2px;
   font-family: Oswald;

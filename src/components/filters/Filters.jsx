@@ -4,7 +4,6 @@ import { Dropdown } from "../_reusableComponents/dropdown/Dropdown";
 import { Button } from "../_reusableComponents/button/Button";
 
 export const Filters = (props) => {
-  //
   // Do usunięcia po ogarnięciu fetchowania
   const speciesArray = [
     { name: "Human", id: 1 },
@@ -50,6 +49,9 @@ export const Filters = (props) => {
           text={"Deactivate characteres"}
           background={"#0088da"}
           sign={"⛔"}
+          checkedNames={props.checkedNames}
+          peopleArray={props.peopleArray}
+          setActivePeopleArray={props.setActivePeopleArray}
         />
         <Button
           text={"Remove characteres"}
