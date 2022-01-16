@@ -11,6 +11,7 @@ export const App = () => {
   const [searchedInput, setSearchedInput] = useState("");
   const [currentElement, setCurrentElement] = useState(1);
   const [page, setPage] = useState(1);
+  const [checkedNames, setCheckedNames] = useState([]);
 
   const urlParam = !!searchedInput ? `search=${searchedInput}` : `page=${page}`;
   const hookParam = !!searchedInput ? searchedInput : page;
@@ -28,6 +29,8 @@ export const App = () => {
   const lastElement = !!data.results ? (data.count / 5 + 1).toFixed(0) : 1;
   const peopleArray = !!data.results ? [...data.results] : [];
 
+  console.log(checkedNames);
+
   return (
     <div>
       {!!data.results ? (
@@ -40,6 +43,8 @@ export const App = () => {
                 ? peopleArray.splice(0, 5)
                 : peopleArray.splice(5, 9)
             }
+            checkedNames={checkedNames}
+            setCheckedNames={setCheckedNames}
           />
           <Footer
             lastElement={lastElement}

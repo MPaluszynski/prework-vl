@@ -31,8 +31,9 @@ export const Data = (props) => {
         born={person.birth_year}
         homeworld={person.homeworld}
         vehiclesAndStarships={[firstMachineUrl, secondMachineUrl]}
-        dontAsk={""}
         status={true}
+        checkedNames={props.checkedNames}
+        setCheckedNames={props.setCheckedNames}
       />
     );
   });

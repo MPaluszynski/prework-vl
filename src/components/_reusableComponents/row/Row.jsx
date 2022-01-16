@@ -7,6 +7,8 @@ export const Row = (props) => {
   const [firstMachine, setfirstMachine] = useState("");
   const [secondMachine, setSecondMachine] = useState("");
 
+  const [checked, setChecked] = useState(false);
+
   if (props.homeworld && props.homeworld !== "" && props.isHeaderRow !== true) {
     fetch(props.homeworld)
       .then((response) => response.json())
@@ -44,10 +46,27 @@ export const Row = (props) => {
   const secondMachineName =
     props.vehiclesAndStarships[0].length > 1 ? secondMachine : "";
 
+  const handleChange = () => {
+    setChecked(!checked);
+    if (!checked) {
+      props.setCheckedNames([...props.checkedNames, props.name]);
+    } else {
+      const number = props.checkedNames.indexOf(props.name);
+      props.setCheckedNames(
+        props.checkedNames.filter((_, index) => index !== number)
+      );
+    }
+  };
+
   return (
     <>
       <div className="row__fragment">
-        <input type="checkbox" className="row__fragment--checkbox" />
+        <input
+          type="checkbox"
+          className="row__fragment--checkbox"
+          checked={checked}
+          onChange={handleChange}
+        />
       </div>
       <div className="row__fragment">
         <span>{props.name}</span>
