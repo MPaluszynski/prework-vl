@@ -3,6 +3,7 @@ import { useState } from "react";
 
 export const Row = (props) => {
   const [planetName, setPlanetName] = useState("");
+  const [speciesName, setSpeciesName] = useState("");
   const [firstMachine, setfirstMachine] = useState("");
   const [secondMachine, setSecondMachine] = useState("");
 
@@ -11,6 +12,14 @@ export const Row = (props) => {
       .then((response) => response.json())
       .then((data) => {
         setPlanetName(data.name);
+      });
+  }
+
+  if (props.species && props.species !== "" && props.isHeaderRow !== true) {
+    fetch(props.species)
+      .then((response) => response.json())
+      .then((data) => {
+        setSpeciesName(data.name);
       });
   }
 
@@ -38,19 +47,35 @@ export const Row = (props) => {
   return (
     <>
       <div className="row__fragment">
-        <input type="checkbox" />
+        <input type="checkbox" className="row__fragment--checkbox" />
       </div>
-      <div className="row__fragment">{props.name}</div>
+      <div className="row__fragment">
+        <span>{props.name}</span>
+        <span className="row__fragment--species">{speciesName}</span>
+      </div>
       <div className="row__fragment">{props.born}</div>
       <div className="row__fragment">
         {!!props.isHeaderRow ? props.homeworld : planetName}
       </div>
       <div className="row__fragment">
-        {!!props.isHeaderRow
-          ? props.vehiclesAndstarships
-          : `${firstMachineName} ${secondMachineName}`}
+        {!!props.isHeaderRow ? (
+          props.vehiclesAndstarships
+        ) : (
+          <>
+            <span>{firstMachineName}</span>
+            <span>{secondMachineName}</span>
+          </>
+        )}
       </div>
-      <div className="row__fragment">{props.status}</div>
+      <div className="row__fragment">
+        {!!props.isHeaderRow ? (
+          <>{"Status"}</>
+        ) : !!props.status ? (
+          <>✔️ Active</>
+        ) : (
+          <>❌Deactivated</>
+        )}
+      </div>
     </>
   );
 };

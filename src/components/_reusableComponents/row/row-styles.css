@@ -1,7 +1,25 @@
 .row__fragment {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background: var(--secondary--background);
+  color: var(--primary-font-color);
   margin-bottom: 2px;
+  font-family: Oswald;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.1em;
+  line-height: 130%;
+}
+
+.row__fragment--checkbox {
+  border: 1px solid #bac6d8;
+  box-sizing: border-box;
+  border-radius: 2px;
+}
+
+.row__fragment--species {
+  font-weight: normal;
+  color: var(--tertiary-font-color);
 }

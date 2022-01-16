@@ -27,11 +27,12 @@ export const Data = (props) => {
       <Row
         key={index}
         name={person.name}
+        species={person.species[0]}
         born={person.birth_year}
         homeworld={person.homeworld}
         vehiclesAndstarships={[firstMachineUrl, secondMachineUrl]}
         dontAsk={""}
-        status={"Active"}
+        status={true}
       />
     );
   });
