@@ -15,7 +15,7 @@ export const Row = (props) => {
 
   const [checked, setChecked] = useState(false);
 
-  if (props.homeworld && props.homeworld !== "" && props.isHeaderRow !== true) {
+  if (props.homeworld && props.isHeaderRow !== true) {
     fetch(props.homeworld)
       .then((response) => response.json())
       .then((data) => {
@@ -23,7 +23,7 @@ export const Row = (props) => {
       });
   }
 
-  if (props.species && props.species !== "" && props.isHeaderRow !== true) {
+  if (props.species && props.isHeaderRow !== true) {
     fetch(props.species)
       .then((response) => response.json())
       .then((data) => {
@@ -47,7 +47,7 @@ export const Row = (props) => {
           setSecondMachine(data.name);
         });
     }
-  }, []);
+  }, [props.page]);
 
   const firstMachineName =
     props.vehiclesAndStarships[0].length > 1 ? firstMachine : "";

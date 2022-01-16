@@ -51,6 +51,7 @@ export const App = () => {
             checkedNames={checkedNames}
             setCheckedNames={setCheckedNames}
             activePeopleArray={activePeopleArray}
+            page={page}
           />
           <Footer
             lastElement={lastElement}
