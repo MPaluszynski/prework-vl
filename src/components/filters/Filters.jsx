@@ -3,7 +3,7 @@ import { Input } from "../_reusableComponents/input/Input";
 import { Dropdown } from "../_reusableComponents/dropdown/Dropdown";
 import { Button } from "../_reusableComponents/button/Button";
 
-export const Filters = () => {
+export const Filters = (props) => {
   //
   // Do usunięcia po ogarnięciu fetchowania
   const speciesArray = [
@@ -28,7 +28,7 @@ export const Filters = () => {
   return (
     <div className="filters">
       <div className="filters__inputs">
-        <Input />
+        <Input setSearchedInput={props.setSearchedInput} />
         <Dropdown
           placeholder={"Species"}
           optionsArray={speciesArray}

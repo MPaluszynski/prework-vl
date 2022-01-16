@@ -12,7 +12,7 @@ export const Icon = (props) => {
   const Icon = nameMapping[iconName.slice(0, 2)][iconName];
 
   return (
-    <div className={className}>
+    <div className={className} onClick={props.onClick}>
       <Icon />
     </div>
   );

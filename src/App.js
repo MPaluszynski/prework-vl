@@ -8,17 +8,22 @@ import { Footer } from "./components/footer/Footer.jsx";
 
 export const App = () => {
   const [data, setData] = useState({});
+  const [searchedInput, setSearchedInput] = useState("");
   const [currentElement, setCurrentElement] = useState(1);
   const [page, setPage] = useState(1);
 
-  const url = `https://swapi.py4e.com/api/people/?page=${page}`;
+  const urlParam = !!searchedInput ? `search=${searchedInput}` : `page=${page}`;
+  const hookParam = !!searchedInput ? searchedInput : page;
+
+  const url = `https://swapi.py4e.com/api/people/?${urlParam}`;
+
   useEffect(() => {
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
         setData(data);
       });
-  }, [page]);
+  }, [hookParam]);
 
   const lastElement = !!data.results ? (data.count / 5 + 1).toFixed(0) : 1;
   const peopleArray = !!data.results ? [...data.results] : [];
@@ -28,7 +33,7 @@ export const App = () => {
       {!!data.results ? (
         <>
           <Header />
-          <Filters />
+          <Filters setSearchedInput={setSearchedInput} />
           <Data
             peopleArray={
               currentElement % 2 !== 0

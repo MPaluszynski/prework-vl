@@ -26,3 +26,9 @@ html,
   width: 100vw;
   background: var(--primary--background);
 }
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+}
