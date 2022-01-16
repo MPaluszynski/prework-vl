@@ -6,12 +6,29 @@ export const Button = (props) => {
     background: ${props.background};
   `;
 
-  const handleClick = () => {
+  const checkActivationStatus = () => {
     props.setActivePeopleArray(
       props.peopleArray.filter((person) => {
         return props.checkedNames.includes(person.name);
       })
     );
+  };
+
+  const checkRemoveStatus = () => {
+    props.setRemovePeopleArray(
+      props.peopleArray.filter((person) => {
+        return props.checkedNames.includes(person.name);
+      })
+    );
+  };
+
+  const handleClick = () => {
+    if (props.text === "Deactivate characteres") {
+      checkActivationStatus();
+    } else if (props.text === "Remove characteres") {
+      checkRemoveStatus();
+      props.setCheckOverride(true);
+    }
   };
 
   return (

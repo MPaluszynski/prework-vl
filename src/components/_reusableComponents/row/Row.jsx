@@ -55,6 +55,9 @@ export const Row = (props) => {
     props.vehiclesAndStarships[0].length > 1 ? secondMachine : "";
 
   const handleChange = () => {
+    if (!!props.checkOverride) {
+      props.setCheckOverride(false);
+    }
     setChecked(!checked);
     if (!checked) {
       props.setCheckedNames([...props.checkedNames, props.name]);
@@ -72,7 +75,7 @@ export const Row = (props) => {
         <input
           type="checkbox"
           className="row__fragment--checkbox"
-          checked={checked}
+          checked={!!props.checkOverride ? !props.checkOverride : checked}
           onChange={handleChange}
         />
       </StyledRowFragment>

@@ -38,6 +38,8 @@ export const Data = (props) => {
         checkedNames={props.checkedNames}
         setCheckedNames={props.setCheckedNames}
         page={props.page}
+        checkOverride={props.checkOverride}
+        setCheckOverride={props.setCheckOverride}
       />
     );
   });

@@ -13,6 +13,8 @@ export const App = () => {
   const [page, setPage] = useState(1);
   const [checkedNames, setCheckedNames] = useState([]);
   const [activePeopleArray, setActivePeopleArray] = useState([]);
+  const [removePeopleArray, setRemovePeopleArray] = useState([]);
+  const [checkOverride, setCheckOverride] = useState(false);
 
   const urlParam = !!searchedInput ? `search=${searchedInput}` : `page=${page}`;
   const hookParam = !!searchedInput ? searchedInput : page;
@@ -35,6 +37,12 @@ export const App = () => {
       : [...data.results].splice(5, 9)
     : [];
 
+  if (removePeopleArray.length > 0) {
+    peopleArray = peopleArray.filter((person) => {
+      return !removePeopleArray.includes(person);
+    });
+  }
+
   return (
     <div>
       {!!data.results ? (
@@ -45,6 +53,8 @@ export const App = () => {
             peopleArray={peopleArray}
             checkedNames={checkedNames}
             setActivePeopleArray={setActivePeopleArray}
+            setRemovePeopleArray={setRemovePeopleArray}
+            setCheckOverride={setCheckOverride}
           />
           <Data
             peopleArray={peopleArray}
@@ -52,6 +62,8 @@ export const App = () => {
             setCheckedNames={setCheckedNames}
             activePeopleArray={activePeopleArray}
             page={page}
+            checkOverride={checkOverride}
+            setCheckOverride={setCheckOverride}
           />
           <Footer
             lastElement={lastElement}

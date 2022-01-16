@@ -52,11 +52,17 @@ export const Filters = (props) => {
           checkedNames={props.checkedNames}
           peopleArray={props.peopleArray}
           setActivePeopleArray={props.setActivePeopleArray}
+          setRemovePeopleArray={props.setRemovePeopleArray}
         />
         <Button
           text={"Remove characteres"}
           background={"#bc2626"}
           sign={"➖"}
+          checkedNames={props.checkedNames}
+          peopleArray={props.peopleArray}
+          setActivePeopleArray={props.setActivePeopleArray}
+          setRemovePeopleArray={props.setRemovePeopleArray}
+          setCheckOverride={props.setCheckOverride}
         />
       </div>
     </div>
