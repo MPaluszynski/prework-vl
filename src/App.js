@@ -11,9 +11,9 @@ export const App = () => {
   const [currentElement, setCurrentElement] = useState(1);
   const [page, setPage] = useState(1);
 
-  const peopleUrl = `https://swapi.py4e.com/api/people/?page=${page}`;
+  const url = `https://swapi.py4e.com/api/people/?page=${page}`;
   useEffect(() => {
-    fetch(peopleUrl)
+    fetch(url)
       .then((response) => response.json())
       .then((data) => {
         setData(data);
