@@ -13,6 +13,12 @@ export const Input = (props) => {
     props.setSearchedInput(currentValue);
   };
 
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      updateSearchedInput();
+    }
+  };
+
   return (
     <div className="input">
       {" "}
@@ -21,6 +27,7 @@ export const Input = (props) => {
         type="text"
         placeholder="Search..."
         onChange={(e) => updateCurrentValue(e.target.value)}
+        onKeyPress={(e) => handleKeyPress(e)}
       />
       <Icon
         iconName={"AiOutlineSearch"}
