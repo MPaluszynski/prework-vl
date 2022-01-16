@@ -14,14 +14,26 @@ export const Dropdown = (props) => {
   };
 
   const style = {
+    inputField: {
+      margin: "0",
+      width: "100%",
+      height: "100%",
+      display: "flex",
+    },
     searchBox: {
       border: "none",
       color: "#484f53",
+      display: !!props.isSingleSelect ? "flex" : "",
+      aliginItems: !!props.isSingleSelect ? "center" : "",
     },
-    chips: {
-      // To change css chips(Selected options)
-      background: "red",
-    },
+    chips: !!props.isSingleSelect
+      ? {
+          margin: "0",
+          width: "100%",
+          height: "100%",
+          fontSize: "1.1em",
+        }
+      : {},
   };
 
   return (
@@ -33,6 +45,7 @@ export const Dropdown = (props) => {
         displayValue="name"
         onSelect={onSelect}
         onRemove={onRemove}
+        selectionLimit={4}
         style={style}
         hidePlaceholder={true}
         showArrow={true}

@@ -18,8 +18,8 @@ export const Data = (props) => {
         firstMachineUrl = jointArray[0];
         secondMachineUrl = jointArray[1];
       } else if (jointArray.length >= 3) {
-        firstMachineUrl = getRandomItem(jointArray);
-        secondMachineUrl = getRandomItem(jointArray);
+        firstMachineUrl = getRandomItem(person.vehicles);
+        secondMachineUrl = getRandomItem(person.starships);
       }
     }
 
@@ -30,7 +30,7 @@ export const Data = (props) => {
         species={person.species[0]}
         born={person.birth_year}
         homeworld={person.homeworld}
-        vehiclesAndstarships={[firstMachineUrl, secondMachineUrl]}
+        vehiclesAndStarships={[firstMachineUrl, secondMachineUrl]}
         dontAsk={""}
         status={true}
       />
@@ -44,7 +44,7 @@ export const Data = (props) => {
           name={"Name"}
           born={"Born"}
           homeworld={"Homeworld"}
-          vehiclesAndstarships={"Vehicles and Starships"}
+          vehiclesAndStarships={"Vehicles and Starships"}
           status={"Status"}
           isHeaderRow={true}
         />

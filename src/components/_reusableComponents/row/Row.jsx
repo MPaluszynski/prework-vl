@@ -23,16 +23,16 @@ export const Row = (props) => {
       });
   }
 
-  if (props.vehiclesAndstarships[0].length > 1) {
-    fetch(props.vehiclesAndstarships[0])
+  if (props.vehiclesAndStarships[0].length > 1) {
+    fetch(props.vehiclesAndStarships[0])
       .then((response) => response.json())
       .then((data) => {
         setfirstMachine(data.name);
       });
   }
 
-  if (props.vehiclesAndstarships[1].length > 1) {
-    fetch(props.vehiclesAndstarships[1])
+  if (props.vehiclesAndStarships[1].length > 1) {
+    fetch(props.vehiclesAndStarships[1])
       .then((response) => response.json())
       .then((data) => {
         setSecondMachine(data.name);
@@ -40,9 +40,9 @@ export const Row = (props) => {
   }
 
   const firstMachineName =
-    props.vehiclesAndstarships[0].length > 1 ? firstMachine : "";
+    props.vehiclesAndStarships[0].length > 1 ? firstMachine : "";
   const secondMachineName =
-    props.vehiclesAndstarships[0].length > 1 ? secondMachine : "";
+    props.vehiclesAndStarships[0].length > 1 ? secondMachine : "";
 
   return (
     <>
@@ -59,7 +59,7 @@ export const Row = (props) => {
       </div>
       <div className="row__fragment">
         {!!props.isHeaderRow ? (
-          props.vehiclesAndstarships
+          props.vehiclesAndStarships
         ) : (
           <>
             <span>{firstMachineName}</span>
