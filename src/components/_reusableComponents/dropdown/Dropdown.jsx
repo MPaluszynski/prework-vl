@@ -5,6 +5,13 @@ import Multiselect from "multiselect-react-dropdown";
 export const Dropdown = (props) => {
   const [options] = useState(props.optionsArray);
 
+  const filterBySpecies = (selectedList) => {
+    const urlArray = selectedList.map((homeworld) => {
+      return homeworld.url;
+    });
+    props.setFilteredSpecies([...urlArray]);
+  };
+
   const filterByHomeworlds = (selectedList) => {
     const urlArray = selectedList.map((homeworld) => {
       return homeworld.url;
@@ -21,12 +28,16 @@ export const Dropdown = (props) => {
       filterByStatus(selectedItem);
     } else if (props.placeholder === "Homeworlds") {
       filterByHomeworlds(selectedList);
+    } else if (props.placeholder === "Species") {
+      filterBySpecies(selectedList);
     }
   };
 
   const onRemove = (selectedList, removedItem) => {
     if (props.placeholder === "Homeworlds") {
       filterByHomeworlds(selectedList);
+    } else if (props.placeholder === "Species") {
+      filterBySpecies(selectedList);
     }
   };
 

@@ -14,7 +14,7 @@ export const App = () => {
   const [checkedNames, setCheckedNames] = useState([]);
   const [activePeopleArray, setActivePeopleArray] = useState([]);
   const [removePeopleArray, setRemovePeopleArray] = useState([]);
-
+  const [filteredSpecies, setFilteredSpecies] = useState([]);
   const [filteredHomeworlds, setFilteredHomeworlds] = useState([]);
   const [globalStatus, setGlobalStatus] = useState("All");
   const [checkOverride, setCheckOverride] = useState(false);
@@ -46,11 +46,19 @@ export const App = () => {
     });
   }
 
+  if (filteredSpecies.length > 0) {
+    peopleArray = peopleArray.filter((person) => {
+      return filteredSpecies.includes(person.species[0]);
+    });
+  }
+
   if (filteredHomeworlds.length > 0) {
     peopleArray = peopleArray.filter((person) => {
       return filteredHomeworlds.includes(person.homeworld);
     });
   }
+
+  // console.log(filteredSpecies);
 
   return (
     <div>
@@ -64,6 +72,7 @@ export const App = () => {
             setActivePeopleArray={setActivePeopleArray}
             setRemovePeopleArray={setRemovePeopleArray}
             setCheckOverride={setCheckOverride}
+            setFilteredSpecies={setFilteredSpecies}
             setFilteredHomeworlds={setFilteredHomeworlds}
             setGlobalStatus={setGlobalStatus}
           />

@@ -18,6 +18,7 @@ export const Filters = (props) => {
           placeholder={"Species"}
           optionsArray={speciesArray}
           isSingleSelect={false}
+          setFilteredSpecies={props.setFilteredSpecies}
         />
         <Dropdown
           placeholder={"Homeworlds"}
