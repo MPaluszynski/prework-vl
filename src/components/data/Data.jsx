@@ -1,7 +1,17 @@
+import React from "react";
 import "./data-styles.css";
 import { Row } from "../_reusableComponents/row/Row.jsx";
 
 export const Data = (props) => {
+  let filterStatus;
+  if (props.globalStatus === "All") {
+    filterStatus = null;
+  } else if (props.globalStatus === "Active") {
+    filterStatus = true;
+  } else if (props.globalStatus === "Deactivated") {
+    filterStatus = false;
+  }
+
   const renderArray = props.peopleArray.map((person, index) => {
     const getRandomItem = (array) => {
       return array[Math.floor(Math.random() * array.length)];
@@ -26,7 +36,7 @@ export const Data = (props) => {
       }
     }
 
-    return (
+    return filterStatus === null || filterStatus === status ? (
       <Row
         key={index}
         name={person.name}
@@ -41,6 +51,8 @@ export const Data = (props) => {
         checkOverride={props.checkOverride}
         setCheckOverride={props.setCheckOverride}
       />
+    ) : (
+      <React.Fragment key={index}></React.Fragment>
     );
   });
 

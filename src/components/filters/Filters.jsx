@@ -28,6 +28,7 @@ export const Filters = (props) => {
           placeholder={"Status"}
           optionsArray={statusArray}
           isSingleSelect={true}
+          setGlobalStatus={props.setGlobalStatus}
         />
       </div>
       <div className="filters__buttons">

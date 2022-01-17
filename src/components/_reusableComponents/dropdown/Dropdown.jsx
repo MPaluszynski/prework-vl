@@ -5,8 +5,14 @@ import Multiselect from "multiselect-react-dropdown";
 export const Dropdown = (props) => {
   const [options] = useState(props.optionsArray);
 
+  const filterByStatus = (selectedItem) => {
+    props.setGlobalStatus(selectedItem.name);
+  };
+
   const onSelect = (selectedList, selectedItem) => {
-    console.log(selectedItem);
+    if (props.placeholder === "Status") {
+      filterByStatus(selectedItem);
+    }
   };
 
   const onRemove = (selectedList, removedItem) => {
@@ -45,7 +51,6 @@ export const Dropdown = (props) => {
         displayValue="name"
         onSelect={onSelect}
         onRemove={onRemove}
-        selectionLimit={4}
         style={style}
         hidePlaceholder={true}
         showArrow={true}

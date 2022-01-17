@@ -14,6 +14,7 @@ export const App = () => {
   const [checkedNames, setCheckedNames] = useState([]);
   const [activePeopleArray, setActivePeopleArray] = useState([]);
   const [removePeopleArray, setRemovePeopleArray] = useState([]);
+  const [globalStatus, setGlobalStatus] = useState("All");
   const [checkOverride, setCheckOverride] = useState(false);
 
   const urlParam = !!searchedInput ? `search=${searchedInput}` : `page=${page}`;
@@ -43,6 +44,8 @@ export const App = () => {
     });
   }
 
+  // console.log(globalStatus);
+
   return (
     <div>
       {!!data.results ? (
@@ -55,6 +58,7 @@ export const App = () => {
             setActivePeopleArray={setActivePeopleArray}
             setRemovePeopleArray={setRemovePeopleArray}
             setCheckOverride={setCheckOverride}
+            setGlobalStatus={setGlobalStatus}
           />
           <Data
             peopleArray={peopleArray}
@@ -64,6 +68,7 @@ export const App = () => {
             page={page}
             checkOverride={checkOverride}
             setCheckOverride={setCheckOverride}
+            globalStatus={globalStatus}
           />
           <Footer
             lastElement={lastElement}
