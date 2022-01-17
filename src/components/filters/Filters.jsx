@@ -23,6 +23,7 @@ export const Filters = (props) => {
           placeholder={"Homeworlds"}
           optionsArray={homeworldsArray}
           isSingleSelect={false}
+          setFilteredHomeworlds={props.setFilteredHomeworlds}
         />
         <Dropdown
           placeholder={"Status"}

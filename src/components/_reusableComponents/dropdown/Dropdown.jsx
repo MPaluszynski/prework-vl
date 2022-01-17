@@ -5,6 +5,13 @@ import Multiselect from "multiselect-react-dropdown";
 export const Dropdown = (props) => {
   const [options] = useState(props.optionsArray);
 
+  const filterByHomeworlds = (selectedList) => {
+    const urlArray = selectedList.map((homeworld) => {
+      return homeworld.url;
+    });
+    props.setFilteredHomeworlds([...urlArray]);
+  };
+
   const filterByStatus = (selectedItem) => {
     props.setGlobalStatus(selectedItem.name);
   };
@@ -12,11 +19,15 @@ export const Dropdown = (props) => {
   const onSelect = (selectedList, selectedItem) => {
     if (props.placeholder === "Status") {
       filterByStatus(selectedItem);
+    } else if (props.placeholder === "Homeworlds") {
+      filterByHomeworlds(selectedList);
     }
   };
 
   const onRemove = (selectedList, removedItem) => {
-    console.log(removedItem);
+    if (props.placeholder === "Homeworlds") {
+      filterByHomeworlds(selectedList);
+    }
   };
 
   const style = {

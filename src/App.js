@@ -14,6 +14,8 @@ export const App = () => {
   const [checkedNames, setCheckedNames] = useState([]);
   const [activePeopleArray, setActivePeopleArray] = useState([]);
   const [removePeopleArray, setRemovePeopleArray] = useState([]);
+
+  const [filteredHomeworlds, setFilteredHomeworlds] = useState([]);
   const [globalStatus, setGlobalStatus] = useState("All");
   const [checkOverride, setCheckOverride] = useState(false);
 
@@ -44,7 +46,11 @@ export const App = () => {
     });
   }
 
-  // console.log(globalStatus);
+  if (filteredHomeworlds.length > 0) {
+    peopleArray = peopleArray.filter((person) => {
+      return filteredHomeworlds.includes(person.homeworld);
+    });
+  }
 
   return (
     <div>
@@ -58,6 +64,7 @@ export const App = () => {
             setActivePeopleArray={setActivePeopleArray}
             setRemovePeopleArray={setRemovePeopleArray}
             setCheckOverride={setCheckOverride}
+            setFilteredHomeworlds={setFilteredHomeworlds}
             setGlobalStatus={setGlobalStatus}
           />
           <Data
