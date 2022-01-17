@@ -17,34 +17,78 @@ export const Row = (props) => {
 
   if (props.homeworld && props.isHeaderRow !== true) {
     fetch(props.homeworld)
-      .then((response) => response.json())
+      .then((response) => {
+        if (response.status !== 200) {
+          console.log(
+            "Looks like there was a problem. Status Code: " + response.status
+          );
+          return;
+        }
+        return response.json();
+      })
       .then((data) => {
         setPlanetName(data.name);
+      })
+      .catch((err) => {
+        console.log("Error: ", err);
       });
   }
 
   if (props.species && props.isHeaderRow !== true) {
     fetch(props.species)
-      .then((response) => response.json())
+      .then((response) => {
+        if (response.status !== 200) {
+          console.log(
+            "Looks like there was a problem. Status Code: " + response.status
+          );
+          return;
+        }
+        return response.json();
+      })
       .then((data) => {
         setSpeciesName(data.name);
+      })
+      .catch((err) => {
+        console.log("Error: ", err);
       });
   }
 
   useEffect(() => {
     if (props.vehiclesAndStarships[0].length > 1) {
       fetch(props.vehiclesAndStarships[0])
-        .then((response) => response.json())
+        .then((response) => {
+          if (response.status !== 200) {
+            console.log(
+              "Looks like there was a problem. Status Code: " + response.status
+            );
+            return;
+          }
+          return response.json();
+        })
         .then((data) => {
           setfirstMachine(data.name);
+        })
+        .catch((err) => {
+          console.log("Error: ", err);
         });
     }
 
     if (props.vehiclesAndStarships[1].length > 1) {
       fetch(props.vehiclesAndStarships[1])
-        .then((response) => response.json())
+        .then((response) => {
+          if (response.status !== 200) {
+            console.log(
+              "Looks like there was a problem. Status Code: " + response.status
+            );
+            return;
+          }
+          return response.json();
+        })
         .then((data) => {
           setSecondMachine(data.name);
+        })
+        .catch((err) => {
+          console.log("Error: ", err);
         });
     }
   }, [props.page]);

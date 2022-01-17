@@ -26,9 +26,20 @@ export const App = () => {
 
   useEffect(() => {
     fetch(url)
-      .then((response) => response.json())
+      .then((response) => {
+        if (response.status !== 200) {
+          console.log(
+            "Looks like there was a problem. Status Code: " + response.status
+          );
+          return;
+        }
+        return response.json();
+      })
       .then((data) => {
         setData(data);
+      })
+      .catch((err) => {
+        console.log("Error: ", err);
       });
   }, [hookParam]);
 
@@ -57,8 +68,6 @@ export const App = () => {
       return filteredHomeworlds.includes(person.homeworld);
     });
   }
-
-  // console.log(filteredSpecies);
 
   return (
     <div>
