@@ -41,7 +41,7 @@ export const App = () => {
       .catch((err) => {
         console.log("Error: ", err);
       });
-  }, [hookParam]);
+  }, [hookParam, url]);
 
   const lastElement = !!data.results ? (data.count / 5 + 1).toFixed(0) : 1;
 
@@ -94,6 +94,7 @@ export const App = () => {
             checkOverride={checkOverride}
             setCheckOverride={setCheckOverride}
             globalStatus={globalStatus}
+            currentElement={currentElement}
           />
           <Footer
             lastElement={lastElement}

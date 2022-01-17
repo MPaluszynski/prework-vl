@@ -91,7 +91,8 @@ export const Row = (props) => {
           console.log("Error: ", err);
         });
     }
-  }, [props.page]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [props.currentElement]);
 
   const firstMachineName =
     props.vehiclesAndStarships[0].length > 1 ? firstMachine : "";

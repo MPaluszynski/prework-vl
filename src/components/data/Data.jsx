@@ -50,6 +50,7 @@ export const Data = (props) => {
         page={props.page}
         checkOverride={props.checkOverride}
         setCheckOverride={props.setCheckOverride}
+        currentElement={props.currentElement}
       />
     ) : (
       <React.Fragment key={index}></React.Fragment>
