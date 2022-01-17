@@ -59,7 +59,7 @@ export const Dropdown = (props) => {
           margin: "0",
           width: "100%",
           height: "100%",
-          fontSize: "1.1em",
+          fontSize: "1.05em",
         }
       : {},
   };

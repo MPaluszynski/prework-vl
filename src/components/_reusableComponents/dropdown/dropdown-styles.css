@@ -3,15 +3,15 @@
   box-sizing: border-box;
   border: 1px solid #bac6d8;
   border-radius: 5px;
-  width: 208.5px;
-  height: 50px;
+  width: 160px;
+  height: 45px;
   display: flex;
   align-items: center;
-  margin-left: 60px;
+  margin-left: 50px;
   padding: 11px 12px;
   font-family: var(--primary-font);
   color: var(--secondary-font-color);
-  font-size: 1.1em;
+  font-size: 1.05em;
   font-style: normal;
   font-weight: normal;
   cursor: pointer;
@@ -20,8 +20,29 @@
 .searchBox::placeholder {
   font-family: var(--primary-font);
   color: var(--secondary-font-color);
-  font-size: 1.25em;
+  font-size: 1.2em;
   font-style: normal;
   font-weight: bold;
   line-height: 130%;
+}
+
+@media only screen and (min-width: 1280px) and (max-width: 1599px) {
+  .dropdown {
+    width: 140px;
+    height: 40px;
+  }
+  .searchBox::placeholder {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 1279px) {
+  .dropdown {
+    width: 130px;
+    height: 35px;
+    margin-left: 30px;
+  }
+  .searchBox::placeholder {
+    font-size: 12.5px;
+  }
 }

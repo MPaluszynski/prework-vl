@@ -1,6 +1,6 @@
 .data {
   background: var(--primary--background);
-  height: 60vh;
+  height: 65vh;
   width: calc(100% - 2 * var(--horizontal-padding));
   padding: 0 var(--horizontal-padding);
 }

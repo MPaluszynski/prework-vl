@@ -47,7 +47,6 @@ export const Data = (props) => {
         status={status}
         checkedNames={props.checkedNames}
         setCheckedNames={props.setCheckedNames}
-        page={props.page}
         checkOverride={props.checkOverride}
         setCheckOverride={props.setCheckOverride}
         currentElement={props.currentElement}
